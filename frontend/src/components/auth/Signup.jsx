@@ -15,6 +15,7 @@ import { Loader2 } from "lucide-react";
 const Signup = () => {
   const [input, setInput] = useState({
     fullname: "",
+    registrationNo: "",
     email: "",
     phoneNumber: "",
     password: "",
@@ -35,6 +36,7 @@ const Signup = () => {
     e.preventDefault();
     const formData = new FormData(); //formdata object
     formData.append("fullname", input.fullname);
+    formData.append("registrationNo", input.registrationNo);
     formData.append("email", input.email);
     formData.append("phoneNumber", input.phoneNumber);
     formData.append("password", input.password);
@@ -85,6 +87,17 @@ const Signup = () => {
               placeholder="Example"
             />
           </div>
+          <div className="my-2">
+            <Label>Registration Number</Label>
+            <Input
+              type="text"
+              value={input.registrationNo}
+              name="registrationNo"
+              onChange={changeEventHandler}
+              placeholder="22030152"
+            />
+          </div>
+
           <div className="my-2">
             <Label>Email</Label>
             <Input
@@ -137,7 +150,7 @@ const Signup = () => {
                   onChange={changeEventHandler}
                   className="cursor-pointer"
                 />
-                <Label htmlFor="r2">Recruiter</Label>
+                <Label htmlFor="r2">Admin</Label>
               </div>
             </RadioGroup>
             <div className="flex items-center gap-2">
